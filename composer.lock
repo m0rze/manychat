@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0964db6d17704b2f945b2e8575acf5f3",
+    "content-hash": "841d8aa050780d609647e93d951011fb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -284,6 +284,61 @@
                 "source": "https://github.com/giggsey/Locale/tree/2.0"
             },
             "time": "2021-08-23T09:01:14+00:00"
+        },
+        {
+            "name": "manychat/manychat-api",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/manychat/manychat-api-php.git",
+                "reference": "9ab52ccf7a24b82623d16eab5f86f5f1addd115e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/manychat/manychat-api-php/zipball/9ab52ccf7a24b82623d16eab5f86f5f1addd115e",
+                "reference": "9ab52ccf7a24b82623d16eab5f86f5f1addd115e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "apigen/apigen": " dev-master",
+                "phpunit/phpunit": "6.*",
+                "roave/better-reflection": "dev-master#ce9d784"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ManyChat\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yury Gavrilov",
+                    "email": "yuriy@manychat.com"
+                }
+            ],
+            "description": "ManyChat API PHP library",
+            "keywords": [
+                "Messenger",
+                "chatbot",
+                "facebook",
+                "manychat",
+                "php",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/manychat/manychat-api-php/issues",
+                "source": "https://github.com/manychat/manychat-api-php/tree/v1.0.5"
+            },
+            "time": "2020-12-11T10:08:03+00:00"
         },
         {
             "name": "psr/cache",

@@ -23,10 +23,15 @@ class TestPhone
      */
     public function test()
     {
-        $testNum = "89ss263847591";
+        $testNum = "89783847541";
         $checkPhone = PhoneNumberUtil::getInstance();
-        //$testNum = $checkPhone->parse($testNum);
-        $isValid = $checkPhone->isValidNumber($testNum);
-        dd($isValid);
+        try{
+            $testNum = $checkPhone->parse($testNum, "RU");
+            $isValid = $checkPhone->isValidNumber($testNum);
+        } catch (\Exception $exception){
+            $isValid = false;
+        }
+
+        return new Response("");
     }
 }

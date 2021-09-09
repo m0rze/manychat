@@ -1,5 +1,6 @@
 
 ###> symfony/framework-bundle ###
+.htaccess
 /.idea
 /.env.local
 /.env.local.php
