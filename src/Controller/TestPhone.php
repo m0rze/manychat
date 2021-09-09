@@ -17,9 +17,9 @@ class TestPhone
      */
     public function recievePhone(Request $request): Response
     {
-
+        $data = json_decode(file_get_contents('php://input'), true);
         $phone = $request->request->get("phone");
-        GeneralFuncs::createWriteFile(dirname(__FILE__)."/log.txt", "a+", serialize($_POST)."\n".$phone."\n");
+        GeneralFuncs::createWriteFile(dirname(__FILE__)."/log.txt", "a+", serialize($data)."\n".$phone."\n");
         $checkPhone = PhoneNumberUtil::getInstance();
         try{
             $phone = $checkPhone->parse($phone, "RU");
