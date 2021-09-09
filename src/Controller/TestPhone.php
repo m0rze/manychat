@@ -18,7 +18,11 @@ class TestPhone
     public function recievePhone(Request $request): Response
     {
         $data = json_decode($request->getContent(), true);
-        $phone = $request->request->get("phone");
+        if(!empty($data["phone"])) {
+            $phone = $request->request->get("phone");
+        } else {
+            $phone = "";
+        }
         GeneralFuncs::createWriteFile(dirname(__FILE__)."/log.txt", "a+", serialize($data)."\n".$phone."\n");
         $checkPhone = PhoneNumberUtil::getInstance();
         try{
