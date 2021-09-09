@@ -23,7 +23,7 @@ class TestPhone
      */
     public function test()
     {
-        $testNum = "89263847591";
+        $testNum = "89ss263847591";
         $checkPhone = PhoneNumberUtil::getInstance();
         $testNum = $checkPhone->parse($testNum, "RU");
         $isValid = $checkPhone->isValidNumber($testNum);
