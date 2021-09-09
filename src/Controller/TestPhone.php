@@ -17,7 +17,7 @@ class TestPhone
     public function recievePhone(Request $request): Response
     {
 
-var_dump(dirname(__FILE__));die();
+
         $phone = $request->request->get("phone");
         GeneralFuncs::createWriteFile("./log.txt", "a+", serialize($_POST)."\n".$phone."\n");
         $checkPhone = PhoneNumberUtil::getInstance();
@@ -47,6 +47,7 @@ var_dump(dirname(__FILE__));die();
      */
     public function test()
     {
+        var_dump(dirname(__FILE__));die();
         $testNum = "89783847541";
         $checkPhone = PhoneNumberUtil::getInstance();
         try{
