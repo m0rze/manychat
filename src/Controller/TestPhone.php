@@ -19,7 +19,7 @@ class TestPhone
     {
         $data = json_decode($request->getContent(), true);
         if(!empty($data["phone"])) {
-            $phone = $request->request->get("phone");
+            $phone = $data["phone"];
         } else {
             $phone = "";
         }
