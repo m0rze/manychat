@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestPhone
 {
     /**
-     * @Route("/inphone", methods={"POST"})
+     * @Route("/inphone", methods={"GET"})
      */
     public function recievePhone(Request $request): Response
     {
