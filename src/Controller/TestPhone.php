@@ -25,7 +25,7 @@ class TestPhone
     {
         $testNum = "89ss263847591";
         $checkPhone = PhoneNumberUtil::getInstance();
-        $testNum = $checkPhone->parse($testNum, "RU");
+        $testNum = $checkPhone->parse($testNum);
         $isValid = $checkPhone->isValidNumber($testNum);
         dd($isValid);
     }
