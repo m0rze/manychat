@@ -19,7 +19,7 @@ class TestPhone
 
 
         $phone = $request->request->get("phone");
-        GeneralFuncs::createWriteFile(dirname(__FILE__)."/log.txt", "a+", serialize($request)."\n".$phone."\n");
+        GeneralFuncs::createWriteFile(dirname(__FILE__)."/log.txt", "a+", serialize($_POST)."\n".$phone."\n");
         $checkPhone = PhoneNumberUtil::getInstance();
         try{
             $phone = $checkPhone->parse($phone, "RU");
