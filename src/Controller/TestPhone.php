@@ -16,7 +16,7 @@ class TestPhone
      */
     public function recievePhone(Request $request): Response
     {
-        GeneralFuncs::createWriteFile("../log.txt", "a+", serialize($_POST));
+        //GeneralFuncs::createWriteFile("../log.txt", "a+", serialize($_POST));
 
         $phone = $request->request->get("phone");
         $checkPhone = PhoneNumberUtil::getInstance();
