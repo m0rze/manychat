@@ -14,10 +14,10 @@ class TestPhone
     /**
      * @Route("/inphone", methods={"POST"})
      */
-    public function recievePhone(Request $request, ManyChatAPI $manyChatAPI): Response
+    public function recievePhone(Request $request): Response
     {
         GeneralFuncs::createWriteFile("../log.txt", "a+", serialize($_POST));
-        
+
         $phone = $request->request->get("phone");
         $checkPhone = PhoneNumberUtil::getInstance();
         try{
