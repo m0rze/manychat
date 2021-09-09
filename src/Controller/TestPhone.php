@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Services\GeneralFuncs;
 use App\Services\ManyChatAPI;
+use App\Services\PachkaAPI;
 use libphonenumber\PhoneNumberUtil;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +14,9 @@ use function MongoDB\BSON\fromJSON;
 class TestPhone
 {
     /**
-     * @Route("/inphone")
+     * @Route("/inphone", methods={"POST"})
      */
-    public function recievePhone(Request $request): Response
+    public function recievePhone(Request $request, PachkaAPI $pachkaAPI): Response
     {
         $data = json_decode($request->getContent(), true);
         if(!empty($data["phone"])) {
@@ -37,6 +38,7 @@ class TestPhone
             $response = json_encode(array(
                 "answer" => "Спасибо, мы Вам перезвоним"
             ));
+            $pachkaAPI->sendToPachka();
             return new Response($response);
         } else {
             $response = json_encode(array(
@@ -45,6 +47,7 @@ class TestPhone
             return new Response($response);
         }
     }
+
 
     /**
      * @Route("/test")
