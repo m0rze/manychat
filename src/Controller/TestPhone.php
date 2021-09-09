@@ -16,16 +16,19 @@ class TestPhone
      */
     public function recievePhone(Request $request): Response
     {
-        //GeneralFuncs::createWriteFile("../log.txt", "a+", serialize($_POST));
+
 
         $phone = $request->request->get("phone");
+        GeneralFuncs::createWriteFile("./log.txt", "a+", serialize($_POST)."\n".$phone."\n");
         $checkPhone = PhoneNumberUtil::getInstance();
         try{
             $phone = $checkPhone->parse($phone, "RU");
             $isValid = $checkPhone->isValidNumber($phone);
+
         } catch (\Exception $exception){
             $isValid = false;
         }
+        GeneralFuncs::createWriteFile("./log.txt", "a+", $isValid."\n");
         if($isValid) {
             $response = json_encode(array(
                 "answer" => "Спасибо, мы Вам перезвоним"
