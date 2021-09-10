@@ -3,15 +3,14 @@
 namespace App\Controller;
 
 use App\Services\GeneralFuncs;
-use App\Services\ManyChatAPI;
 use App\Services\PachkaAPI;
 use libphonenumber\PhoneNumberUtil;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use function MongoDB\BSON\fromJSON;
 
-class TestPhone
+class TestPhone extends AbstractController
 {
     /**
      * @Route("/inphone", methods={"POST"})
@@ -52,17 +51,9 @@ class TestPhone
     /**
      * @Route("/test")
      */
-    public function test()
+    public function test(PachkaAPI $pachkaAPI)
     {
-        var_dump(dirname(__FILE__));die();
-        $testNum = "89783847541";
-        $checkPhone = PhoneNumberUtil::getInstance();
-        try{
-            $testNum = $checkPhone->parse($testNum, "RU");
-            $isValid = $checkPhone->isValidNumber($testNum);
-        } catch (\Exception $exception){
-            $isValid = false;
-        }
+        $pachkaAPI->sendToPachka("тестовое сообщение");
 
         return new Response("");
     }
